@@ -1,0 +1,18 @@
+{
+  "name": "norobot",
+  "version": "1.0.0",
+  "description": "Connect/Express middleware to disable robots indexing",
+  "main": "index.js",
+  "repository": "sbtoledo/norobot",
+  "keywords": [
+    "x-robots-tag",
+    "robots",
+    "middleware",
+    "connect",
+    "express",
+    "header",
+    "headers"
+  ],
+  "author": "Saulo Toledo (sbtoledo.github.io)",
+  "license": "MIT"
+}

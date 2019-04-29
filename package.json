@@ -1,6 +1,6 @@
 {
   "name": "norobot",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Connect/Express middleware that sets 'X-Robots-Tag' header to 'no-index, no-follow'",
   "main": "index.js",
   "repository": "https://github.com/stldo/norobot",

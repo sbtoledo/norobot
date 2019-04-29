@@ -3,16 +3,19 @@
   "version": "1.0.0",
   "description": "Connect/Express middleware to disable robots indexing",
   "main": "index.js",
-  "repository": "sbtoledo/norobot",
+  "repository": "https://github.com/stldo/norobot",
   "keywords": [
-    "x-robots-tag",
     "robots",
+    "x-robots-tag",
     "middleware",
     "connect",
     "express",
     "header",
     "headers"
   ],
-  "author": "Saulo Toledo (sbtoledo.github.io)",
-  "license": "MIT"
+  "author": "stldo (https://github.com/stldo)",
+  "license": "MIT",
+  "peerDependencies": {
+    "express": "4.x"
+  }
 }

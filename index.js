@@ -1,20 +1,19 @@
-function setHeader(norobot, response) {
-    norobot && response.setHeader('X-Robots-Tag', 'noindex, nofollow');
-}
+/* TODO
+ * - Check request headers for robot requests
+ */
 
-module.exports = function (request, response, next) {
-
-    if (response && response.setHeader) {
-        setHeader(true, response);
-        next();
-        return;
-    }
-
-    var norobot = !!request;
-
-    return function (request, response, next) {
-        setHeader(norobot, response);
-        next();
-    }
-
+module.exports = function middleware(request, response, next) {
+  /* It was called as a middleware */
+  if (response) {
+    response.setHeader('X-Robots-Tag', 'noindex, nofollow')
+    next()
+  }
+  /* norobot(true) */
+  else if (!!request) {
+    return middleware
+  }
+  /* norobot(false) */
+  else {
+    return (request, response, next) => next()
+  }
 }

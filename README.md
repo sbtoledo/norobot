@@ -1,6 +1,6 @@
 # norobot
 
-Connect/Express middleware to disable robots indexing. It just sets `X-Robots-Tag` header to `no-index, no-follow`, useful to avoid indexing of staging environments by search engines.
+Connect/Express middleware that sets `X-Robots-Tag` header to `no-index, no-follow`. Useful to avoid indexing of non production environments.
 
 ## Install
 
@@ -10,22 +10,21 @@ $ npm install norobot
 
 ## Use
 
-```js
-var express = require('express');
-var norobot = require('norobot');
+```javascript
+const express = require('express')
+const norobot = require('norobot')
 
-// Create Express application
-var application = express();
+const app = express()
+
+// Enable X-Robots-Tag for all routes if not in production
+app.use(norobot('production' !== process.env.NODE_ENV))
 
 // Disable X-Robots-Tag for a route
-application.get('/', norobot, function (request, response) {
-    response.send('Hello World!');
-});
-
-// If not in production, enable X-Robots-Tag for entire application
-application.use(norobot('production' !== process.env.NODE_ENV));
+app.get('/', norobot, (request, response, next) => {
+  response.send('Hello World!')
+})
 ```
 
-## TODO
+## License
 
-- Enable norobot only for requests from robots
+[The MIT License](./LICENSE)

@@ -16,7 +16,7 @@ const norobot = require('norobot')
 
 const app = express()
 
-// Enable X-Robots-Tag for all routes if not in production
+// Enable X-Robots-Tag for all routes, if not in production
 app.use(norobot('production' !== process.env.NODE_ENV))
 
 // Disable X-Robots-Tag for a route
